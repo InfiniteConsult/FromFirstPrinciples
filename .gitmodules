@@ -1,0 +1,12 @@
+[submodule "articles/0004_std_lib_http_client"]
+	path = articles/0004_std_lib_http_client
+	url = https://github.com/InfiniteConsult/0004_std_lib_http_client.git
+[submodule "articles/0003_html_css_javascript_article_viewer"]
+	path = articles/0003_html_css_javascript_article_viewer
+	url = https://github.com/InfiniteConsult/0003_html_css_javascript_article_viewer.git
+[submodule "articles/0002_docker_dev_environment"]
+	path = articles/0002_docker_dev_environment
+	url = https://github.com/InfiniteConsult/0002_docker_dev_environment.git
+[submodule "articles/0001_basic_fastapi"]
+	path = articles/0001_basic_fastapi
+	url = https://github.com/InfiniteConsult/0001_basic_fastapi.git

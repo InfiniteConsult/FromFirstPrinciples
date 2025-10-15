@@ -1,0 +1,11 @@
+# --- Development Environment Configuration ---
+# Copy this file to 'dev.conf' and edit it, or use ./configure.sh to set options.
+
+# Enable NVIDIA GPU support for Docker on the host and in the container.
+# Requires NVIDIA drivers to be installed on the host.
+# Values: "true" or "false"
+ENABLE_GPU_SUPPORT="false"
+
+# Install CUDA toolkit inside the container. Requires ENABLE_GPU_SUPPORT=true.
+# Values: "true" or "false"
+INSTALL_CUDA_IN_CONTAINER="false"

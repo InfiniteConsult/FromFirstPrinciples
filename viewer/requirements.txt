@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+httpx
+pytest
+pytest-cov
+jinja2
+python-multipart
+pytest-playwright

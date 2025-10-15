@@ -1,0 +1,23 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info
+
+# All venvs
+.venv
+
+# Directories for user usage within container
+data/
+repos/
+
+# Configuration file to switch build types
+dev.conf
+
+# Coverage
+.coverage
+htmlcov
+
+# Text representation of source files
+src.txt
