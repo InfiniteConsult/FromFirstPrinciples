@@ -118,7 +118,7 @@ if __name__ == "__main__":
         "server:app",
         host="0.0.0.0",
         port=8889,  # Matches the port exposed in the Dockerfile
-        reload=True,
+        reload=False,
         ssl_keyfile=str(KEY_FILE),
         ssl_certfile=str(CERT_FILE),
     )
