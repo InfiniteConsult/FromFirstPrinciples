@@ -1,5 +1,6 @@
 # InfiniteConsulting Technical Articles & Development Environment
 - email: info@infcon.co.za
+- linkedin: https://www.linkedin.com/in/warren-jitsing-0ab3b21ab/
 
 # Accelerate First. Accelerate Hard. No Latency.
 
