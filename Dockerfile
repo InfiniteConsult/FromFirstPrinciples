@@ -2,9 +2,9 @@
 FROM debian:12
 LABEL authors="Infinite Consulting"
 
-ARG py311="3.11.13"
-ARG py312="3.12.11"
-ARG py313="3.13.7"
+ARG py312="3.12.12"
+ARG py313="3.13.9"
+ARG py314="3.14.0"
 ARG gcc15="15.2.0"
 ARG USERNAME
 ARG USER_UID
@@ -76,14 +76,14 @@ RUN mkdir ~/deps && \
     echo "export CXX=/usr/local/bin/g++" >> /home/$USERNAME/.bashrc
 
 
-RUN for version in $py311 $py312 $py313; do \
+RUN for version in $py312 $py313 $py314; do \
         echo "--- Building Python version ${version} ---"; \
         wget https://github.com/python/cpython/archive/refs/tags/v${version}.tar.gz; \
         tar -xzf v${version}.tar.gz; \
         cd cpython-${version}; \
         \
         CONFIGURE_FLAGS="--enable-optimizations --enable-loadable-sqlite-extensions --with-lto=full"; \
-        if [ "$version" = "$py313" ]; then \
+        if [ "$version" = "$py313" ] || [ "$version" = "$py314" ]; then \
             echo "--- Adding --disable-gil flag for nogil build ---"; \
             CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-gil"; \
         fi; \
