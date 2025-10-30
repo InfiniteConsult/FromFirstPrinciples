@@ -40,7 +40,6 @@ RUN apt update \
       tee /etc/apt/sources.list.d/docker.list > /dev/null \
     && apt update \
     && apt install -y docker-ce-cli \
-    && apt install -y \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
