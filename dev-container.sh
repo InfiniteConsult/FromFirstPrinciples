@@ -3,6 +3,14 @@ source ./dev.conf
 
 USERNAME="$USER"
 GPU_FLAG=""
+DOCKER_GID=$(getent group docker | cut -d: -f3)
+
+if [ -z "$DOCKER_GID" ]; then
+    echo "Error: 'docker' group not found on host."
+    echo "Please run 'sudo groupadd docker && sudo usermod -aG docker $USER'"
+    echo "Then, log out and log back in before re-running this script."
+    exit 1
+fi
 
 # Conditionally add the --gpus flag
 if [ "$ENABLE_GPU_SUPPORT" = "true" ]; then
@@ -19,6 +27,8 @@ docker run -it \
   --cap-add=SYS_NICE \
   --cap-add=SYS_PTRACE \
   $GPU_FLAG \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --group-add $DOCKER_GID \
   -v "$(pwd)/articles:/home/$USERNAME/articles" \
   -v "$(pwd)/viewer:/home/$USERNAME/viewer" \
   -v "$(pwd)/data:/home/$USERNAME/data" \
