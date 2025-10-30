@@ -21,3 +21,6 @@ htmlcov
 
 # Text representation of source files
 src.txt
+
+# JetBrains
+.idea
