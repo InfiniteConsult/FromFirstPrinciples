@@ -68,7 +68,7 @@ RUN mkdir ~/deps && \
     cd gcc && \
     ./contrib/download_prerequisites && \
     mkdir build && cd build && \
-    ../configure --disable-multilib --enable-languages=c,c++ && make -j 12 && make install  && \
+    ../configure --disable-multilib --enable-languages=c,c++ && make -j $(nproc) && make install  && \
     cd && rm -rf deps/gcc && \
     echo "export CC=/usr/local/bin/gcc" >> ~/.bashrc  && \
     echo "export CXX=/usr/local/bin/g++" >> ~/.bashrc  && \
@@ -89,7 +89,7 @@ RUN for version in $py312 $py313 $py314; do \
         fi; \
         \
         ./configure $CONFIGURE_FLAGS; \
-        make -j 12; \
+        make -j $(nproc); \
         sudo make altinstall; \
         cd ..; \
     done && \
