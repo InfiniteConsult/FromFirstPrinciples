@@ -19,7 +19,7 @@ docker run -it \
   --cap-add=SYS_NICE \
   --cap-add=SYS_PTRACE \
   $GPU_FLAG \
-  --group-add $DOCKER_GID \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   -v "$(pwd)/articles:/home/$USERNAME/articles" \
   -v "$(pwd)/viewer:/home/$USERNAME/viewer" \
   -v "$(pwd)/data:/home/$USERNAME/data" \
