@@ -10,6 +10,7 @@ ARG USERNAME
 ARG USER_UID
 ARG USER_GID
 ARG SSH_DIR
+ARG HOST_DOCKER_GID
 ARG INSTALL_CUDA_IN_CONTAINER="false"
 
 RUN apt update \
@@ -54,8 +55,22 @@ RUN if [ "$INSTALL_CUDA_IN_CONTAINER" = "true" ]; then \
         echo 'export PATH="/usr/local/cuda/bin:${PATH}"' > /etc/profile.d/cuda.sh; \
     fi
 
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+RUN echo "--- Setting up user and Docker GID ---" \
+    && if getent group docker >/dev/null 2>&1; then \
+        if [ $(getent group docker | cut -d: -f3) -ne $HOST_DOCKER_GID ]; then \
+            echo "--- Modifying container 'docker' group GID to match host ($HOST_DOCKER_GID) ---"; \
+            groupmod --gid $HOST_DOCKER_GID docker; \
+        else \
+            echo "--- Container 'docker' group GID already matches host ($HOST_DOCKER_GID) ---"; \
+        fi \
+    else \
+        echo "--- Creating 'docker' group (GID: $HOST_DOCKER_GID) ---"; \
+        groupadd --gid $HOST_DOCKER_GID docker; \
+    fi \
+    \
+    && groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -G docker -m $USERNAME \
+    \
     && sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/g" /etc/ssh/sshd_config \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
