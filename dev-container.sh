@@ -3,6 +3,15 @@ source ./dev.conf
 
 USERNAME="$USER"
 GPU_FLAG=""
+NETWORK_FLAG=""
+
+# Check if the 'cicd-net' network exists
+if docker network ls | grep -q "cicd-net"; then
+    echo "--- Attaching to 'cicd-net' network ---"
+    NETWORK_FLAG="--network cicd-net"
+else
+    echo "--- 'cicd-net' network not found. Attaching to default network. ---"
+fi
 
 # Conditionally add the --gpus flag
 if [ "$ENABLE_GPU_SUPPORT" = "true" ]; then
@@ -16,6 +25,7 @@ mkdir -p repos data articles viewer
 docker run -it \
   --name "dev-container" \
   --restart always \
+  $NETWORK_FLAG \
   --cap-add=SYS_NICE \
   --cap-add=SYS_PTRACE \
   $GPU_FLAG \
