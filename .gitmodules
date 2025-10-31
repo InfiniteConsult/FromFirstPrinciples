@@ -10,3 +10,6 @@
 [submodule "articles/0001_basic_fastapi"]
 	path = articles/0001_basic_fastapi
 	url = https://github.com/InfiniteConsult/0001_basic_fastapi.git
+[submodule "articles/0005_cicd_part01_docker"]
+	path = articles/0005_cicd_part01_docker
+	url = https://github.com/InfiniteConsult/0005_cicd_part01_docker.git
