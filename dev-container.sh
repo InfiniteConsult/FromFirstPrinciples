@@ -34,6 +34,7 @@ docker run -it \
   -v "$(pwd)/viewer:/home/$USERNAME/viewer" \
   -v "$(pwd)/data:/home/$USERNAME/data" \
   -v "$(pwd)/repos:/home/$USERNAME/repos" \
+  -v "$(pwd)/entrypoint.sh:/entrypoint.sh" \
   -p 127.0.0.1:10200:22 \
   -p 127.0.0.1:10201:8888 \
   -p 127.0.0.1:10202:8889 \

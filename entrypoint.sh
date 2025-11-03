@@ -1,6 +1,17 @@
 #!/bin/sh
 sudo service ssh restart
 
+CA_CERT_PATH="data/ca-cert.pem"
+if [ -f "$CA_CERT_PATH" ]; then
+    echo "--- Found Local CA certificate, installing to system trust store ---"
+    # Copy the CA cert into the system's trust store
+    sudo cp "$CA_CERT_PATH" /usr/local/share/ca-certificates/cicd-stack-ca.crt
+    # Update the system's CA list
+    sudo update-ca-certificates
+else
+    echo "--- No Local CA certificate found at $CA_CERT_PATH, skipping system trust ---"
+fi
+
 # Check for GPG key and gitconfig on the persistent data volume
 if [ -e data/private.pgp ]; then
     gpg --import data/private.pgp

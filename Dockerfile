@@ -141,7 +141,6 @@ Host your-private-gitlab\n\
     StrictHostKeyChecking no\n\
 " > /home/$USERNAME/.ssh/config
 
-COPY --chown=$USERNAME:$USERNAME --chmod=755 ./entrypoint.sh /entrypoint.sh
 
 EXPOSE 22 8888 8889
 ENTRYPOINT ["/entrypoint.sh"]
