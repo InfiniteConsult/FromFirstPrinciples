@@ -13,3 +13,6 @@
 [submodule "articles/0005_cicd_part01_docker"]
 	path = articles/0005_cicd_part01_docker
 	url = https://github.com/InfiniteConsult/0005_cicd_part01_docker.git
+[submodule "articles/0006_cicd_part02_certificate_authority"]
+	path = articles/0006_cicd_part02_certificate_authority
+	url = https://github.com/InfiniteConsult/0006_cicd_part02_certificate_authority.git
