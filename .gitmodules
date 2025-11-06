@@ -16,3 +16,6 @@
 [submodule "articles/0006_cicd_part02_certificate_authority"]
 	path = articles/0006_cicd_part02_certificate_authority
 	url = https://github.com/InfiniteConsult/0006_cicd_part02_certificate_authority.git
+[submodule "articles/0007_cicd_part03_gitlab"]
+	path = articles/0007_cicd_part03_gitlab
+	url = https://github.com/InfiniteConsult/0007_cicd_part03_gitlab.git
