@@ -19,3 +19,6 @@
 [submodule "articles/0007_cicd_part03_gitlab"]
 	path = articles/0007_cicd_part03_gitlab
 	url = https://github.com/InfiniteConsult/0007_cicd_part03_gitlab.git
+[submodule "articles/0008_cicd_part04_jenkins"]
+	path = articles/0008_cicd_part04_jenkins
+	url = https://github.com/InfiniteConsult/0008_cicd_part04_jenkins.git
