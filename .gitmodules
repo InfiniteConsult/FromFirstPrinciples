@@ -22,3 +22,6 @@
 [submodule "articles/0008_cicd_part04_jenkins"]
 	path = articles/0008_cicd_part04_jenkins
 	url = https://github.com/InfiniteConsult/0008_cicd_part04_jenkins.git
+[submodule "articles/0009_cicd_part05_artifactory"]
+	path = articles/0009_cicd_part05_artifactory
+	url = https://github.com/InfiniteConsult/0009_cicd_part05_artifactory.git
