@@ -25,3 +25,6 @@
 [submodule "articles/0009_cicd_part05_artifactory"]
 	path = articles/0009_cicd_part05_artifactory
 	url = https://github.com/InfiniteConsult/0009_cicd_part05_artifactory.git
+[submodule "articles/0010_cicd_part05_sonarqube"]
+	path = articles/0010_cicd_part05_sonarqube
+	url = https://github.com/InfiniteConsult/0010_cicd_part05_sonarqube.git
