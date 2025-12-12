@@ -31,3 +31,6 @@
 [submodule "articles/0011_cicd_part07_mattermost"]
 	path = articles/0011_cicd_part07_mattermost
 	url = https://github.com/InfiniteConsult/0011_cicd_part07_mattermost.git
+[submodule "articles/0012_cicd_part08_elk"]
+	path = articles/0012_cicd_part08_elk
+	url = https://github.com/InfiniteConsult/0012_cicd_part08_elk.git
