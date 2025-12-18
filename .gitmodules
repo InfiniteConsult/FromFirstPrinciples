@@ -34,3 +34,6 @@
 [submodule "articles/0012_cicd_part08_elk"]
 	path = articles/0012_cicd_part08_elk
 	url = https://github.com/InfiniteConsult/0012_cicd_part08_elk.git
+[submodule "articles/0013_cicd_part09_prometheus_grafana"]
+	path = articles/0013_cicd_part09_prometheus_grafana
+	url = https://github.com/InfiniteConsult/0013_cicd_part09_prometheus_grafana.git
